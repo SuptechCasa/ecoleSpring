@@ -20,5 +20,12 @@ public class EtudiantService {
 	public Etudiant getEtudiantById(Long id) {
 		return etudiantRepository.findById(id).orElse(null);
 	}
+	public boolean deleteEtudiantById(Long id) {
+		etudiantRepository.deleteById(id);
+		return !etudiantRepository.existsById(id);	
+	}
 
+	public Etudiant updateEtudiant(Etudiant etudiant) {
+		return etudiantRepository.save(etudiant);
+	}
 }
